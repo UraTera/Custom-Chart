@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red">#FF0000</color>
+    <color name="red_200">#FFD6D6</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="blue_800">#1D4889</color>
+
+    <color name="blue_200">#FF81D4FA</color>
+    <color name="gray_200">#BADBDBDB</color>
+
+    <color name="frame">#4F0372BC</color>            <!-- Элементы полупрозрачный-->
+
+</resources>

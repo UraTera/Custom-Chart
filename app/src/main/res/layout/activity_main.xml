@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_800"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/city"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_chart"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/margin_chart"
+        android:backgroundTint="@color/frame"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollVert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCity">
+<!--        android:backgroundTint="@color/frame"-->
+
+        <HorizontalScrollView
+            android:id="@+id/scrollLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_chart"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/margin_chart"
+            android:layout_marginBottom="10dp"
+            android:scrollbars="none"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.tera.custom_chart.Chart
+                    android:id="@+id/lineChart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chart_axisColor="#BADC7603"
+                    app:chart_chartColor="#BAF0E85F"
+                    app:chart_itemLength="@dimen/item_len"
+                    app:chart_labelSize="@dimen/label_size"
+                    app:chart_labelText=" "
+                    app:chart_markZeroAllHeight="true"
+                    app:chart_markZeroShow="true"
+                    app:chart_minHeight="@dimen/min_height"
+                    app:chart_textAxisShow="false"
+                    app:chart_textColor="@color/white"
+                    app:chart_textOnLine="true"
+                    app:chart_textSize="@dimen/text_size"
+                    app:line_fillShow="true"
+                    app:line_fillStyle="gradient"
+                    app:line_pointColor="#D9D446" />
+
+                <com.tera.custom_chart.Chart
+                    android:id="@+id/barChart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:bar_gradientShow="true"
+                    app:bar_gradientTopColor="#0DB5EF"
+                    app:bar_partWidth="40"
+                    app:chart_Style="bar"
+                    app:chart_chartColor="#A6E2ED"
+                    app:chart_iconShow="false"
+                    app:chart_itemLength="@dimen/item_len"
+                    app:chart_labelSize="@dimen/label_size"
+                    app:chart_labelText=" "
+                    app:chart_markZeroAllHeight="true"
+                    app:chart_markZeroShow="true"
+                    app:chart_minHeight="@dimen/min_height"
+                    app:chart_textAxisShow="false"
+                    app:chart_textColor="@color/white"
+                    app:chart_textSize="@dimen/text_size"
+                    app:chart_textFormat="integer" />
+
+                <com.tera.custom_chart.Chart
+                    android:id="@+id/lineChart2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chart_iconShow="false"
+                    app:chart_itemLength="@dimen/item_len"
+                    app:chart_labelSize="@dimen/label_size"
+                    app:chart_labelText=" "
+                    app:chart_markZeroAllHeight="true"
+                    app:chart_markZeroShow="true"
+                    app:chart_minHeight="@dimen/min_height"
+                    app:chart_textAxisColor="@color/white"
+                    app:chart_textAxisShow="true"
+                    app:chart_textAxisSize="11sp"
+                    app:chart_textColor="@color/white"
+                    app:chart_textSize="@dimen/text_size"
+                    app:chart_textFormat="integer" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/tvTemp"
+            style="@style/text"
+            android:layout_marginTop="@dimen/margin_top"
+            android:text="@string/temp" />
+
+        <TextView
+            android:id="@+id/tvPress"
+            style="@style/text"
+            android:layout_marginTop="154dp"
+            android:text="@string/press" />
+
+        <TextView
+            android:id="@+id/tvWind"
+            style="@style/text"
+            android:layout_marginTop="254dp"
+            android:text="@string/wind" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:id="@+id/scrollVert"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/bnUpdate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card">
+
+        <LinearLayout
+            android:id="@+id/lineRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_setting"
+                android:text="@string/temp" />
+
+            <RadioGroup
+                android:id="@+id/rgTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbC"
+                    style="@style/text_rb"
+                    android:checked="true"
+                    android:text="°C"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/rbF"
+                    style="@style/text_rb"
+                    android:text="°F"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/text_setting"
+                android:text="@string/press" />
+
+            <RadioGroup
+                android:id="@+id/rgPress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbHPa"
+                    style="@style/text_rb"
+                    android:checked="true"
+                    android:text="@string/unit_press_hpa"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/rbMBar"
+                    style="@style/text_rb"
+                    android:text="@string/unit_press_mbr"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/rbMmHg"
+                    style="@style/text_rb"
+                    android:text="@string/unit_press_mmHg"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </RadioGroup>
+
+            <TextView
+                style="@style/text_setting"
+                android:text="@string/wind" />
+
+            <RadioGroup
+                android:id="@+id/rgWind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="26dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbKmHour"
+                    style="@style/text_rb"
+                    android:checked="true"
+                    android:text="@string/unit_wind_kmh"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/rbMSec"
+                    style="@style/text_rb"
+                    android:text="@string/unit_wind_mc"
+                    android:textColor="@color/white"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/rbMiHour"
+                    style="@style/text_rb"
+                    android:text="@string/unit_wind_mlh"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bnUpdate"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="@string/update"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollVert"
+        app:strokeColor="@color/gray_200"
+        app:strokeWidth="1dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

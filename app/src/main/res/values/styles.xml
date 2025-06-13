@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">14dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_setting">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="text_rb">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:theme">@style/radio_button</item>
+    </style>
+
+    <style name="radio_button" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/gray_200</item>
+        <item name="colorControlActivated">@color/blue_200</item>
+    </style>
+
+    <dimen name="item_len">65dp</dimen>
+    <dimen name="text_size">12sp</dimen>
+    <dimen name="margin_top">60dp</dimen>
+    <dimen name="min_height">70dp</dimen>
+    <dimen name="label_size">18dp</dimen>
+    <dimen name="margin_chart">4dp</dimen>
+
+
+
+</resources>

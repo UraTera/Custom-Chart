@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Custom-Chart</string>
+
+    <string name="city">Майами</string>
+    <string name="temp">Температура</string>
+    <string name="press">Давление</string>
+    <string name="wind">Скорость ветра</string>
+    <string name="update">Обновить</string>
+
+    <!-- Давление -->
+    <string name="unit_press_hpa">гПа</string>
+    <string name="unit_press_mbr">мбар</string>
+    <string name="unit_press_mmHg">мм.рт.ст</string>
+
+    <!-- Ветер -->
+    <string name="unit_wind_kmh">км/ч</string>
+    <string name="unit_wind_mc">м/с</string>
+    <string name="unit_wind_mlh">миль/ч</string>
+
+</resources>

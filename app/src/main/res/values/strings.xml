@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Custom-Chart</string>
+
+    <string name="city">Miami</string>
+    <string name="temp">Temperature</string>
+    <string name="press">Pressure</string>
+    <string name="wind">Wind speed</string>
+    <string name="update">Update</string>
+
+    <!-- Давление -->
+    <string name="unit_press_hpa">gPa</string>
+    <string name="unit_press_mbr">mbar</string>
+    <string name="unit_press_mmHg">mmHg</string>
+
+    <!-- Ветер -->
+    <string name="unit_wind_kmh">km/h</string>
+    <string name="unit_wind_mc">m/s</string>
+    <string name="unit_wind_mlh">mph</string>
+
+</resources>
