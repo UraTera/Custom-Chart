@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setPosText() = with(binding){
+    private fun setPosText() = with(binding) {
         val marginTop = resources.getDimension(R.dimen.margin_top)
         val chartHeight = lineChart.chartHeight
         var margin = (marginTop + chartHeight).toInt()
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
 
         var str1 = context.getString(R.string.press)
         var str2 = ""
-        when(numPress){
+        when (numPress) {
             0 -> str2 = context.getString(R.string.unit_press_hpa)
             1 -> str2 = context.getString(R.string.unit_press_mbr)
             2 -> str2 = context.getString(R.string.unit_press_mmHg)
@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         tvPress.text = text
 
         str1 = context.getString(R.string.wind)
-        when(numWind){
+        when (numWind) {
             0 -> str2 = context.getString(R.string.unit_wind_kmh)
             1 -> str2 = context.getString(R.string.unit_wind_mc)
             2 -> str2 = context.getString(R.string.unit_wind_mlh)
@@ -169,14 +169,14 @@ class MainActivity : AppCompatActivity() {
         }
         bnUpdate.setOnClickListener {
             if (keyUpdate) {
-                saveParams()
-                Weather(this@MainActivity).getWeather()
+            saveParams()
+            Weather(this@MainActivity).getWeather()
             }
             keyUpdate = false
         }
     }
 
-    private fun saveParams(){
+    private fun saveParams() {
         val sp = getSharedPreferences(MyConst.SETTING, Context.MODE_PRIVATE)
         sp.edit() {
             putInt(MyConst.NUM_TEMP, numTemp)
@@ -227,7 +227,8 @@ class MainActivity : AppCompatActivity() {
         val listIcon = gson.fromJson<ArrayList<Int>>(iconStr, typeInt)
 
         if (listTime != null && listTemp != null && listPress != null &&
-            listWind != null && listIcon != null)
+            listWind != null && listIcon != null
+        )
             setChart(this, listTime, listTemp, listPress, listWind, listIcon, true)
 
     }

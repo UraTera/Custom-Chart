@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
@@ -41,7 +42,6 @@ class Chart(
         const val BOTTOM_COLOR = -13943715
         const val TOP_COLOR = -4939179
 
-        const val FRAME_COLOR = -7105388
         const val ICON_SIZE = 36f
         const val ITEM_LENGTH = 45f
         const val LINE_WIDTH = 3f
@@ -56,7 +56,6 @@ class Chart(
         const val TEXT_SIZE = 12f
     }
 
-    private val mPaintFrame = Paint()
     private val mPaintChart = Paint()
     private val mPaintPoint = Paint()
     private val mPaintMark = Paint() // Test
@@ -74,7 +73,6 @@ class Chart(
     private var mArrayIntAxis: ArrayList<Int>? = null
     private val mArrayValuePos = ArrayList<ValuePos>()
 
-    private var mFrameColor = FRAME_COLOR
     private var mIndexColor = 0
     private var mIndexText = 0
 
@@ -178,7 +176,7 @@ class Chart(
                 getDimension(R.styleable.Chart_chart_itemLength, dpToPx(ITEM_LENGTH)).toInt()
 
             mLabelColor = getColor(R.styleable.Chart_chart_labelColor, TEXT_COLOR)
-            mLabelSize = getDimension(R.styleable.Chart_chart_labelSize, dpToPx(TEXT_SIZE))
+            mLabelSize = getDimension(R.styleable.Chart_chart_labelSize, spToPx())
             mLabelText = getString(R.styleable.Chart_chart_labelText)
 
             mMarkAllHeight = getBoolean(R.styleable.Chart_chart_markZeroAllHeight, false)
@@ -190,13 +188,13 @@ class Chart(
 
             mTextAxisColor = getColor(R.styleable.Chart_chart_textAxisColor, TEXT_COLOR)
             mTextAxisShow = getBoolean(R.styleable.Chart_chart_textAxisShow, true)
-            mTextAxisSize = getDimension(R.styleable.Chart_chart_textAxisSize, dpToPx(TEXT_SIZE))
+            mTextAxisSize = getDimension(R.styleable.Chart_chart_textAxisSize, spToPx())
             mTextAxisTop = getBoolean(R.styleable.Chart_chart_textAxisTop, false)
 
             mTextColor = getColor(R.styleable.Chart_chart_textColor, TEXT_COLOR)
             mTextFormat = getInt(R.styleable.Chart_chart_textFormat, 0)
             mTextOnLine = getBoolean(R.styleable.Chart_chart_textOnLine, false)
-            mTextSize = getDimension(R.styleable.Chart_chart_textSize, dpToPx(TEXT_SIZE))
+            mTextSize = getDimension(R.styleable.Chart_chart_textSize, spToPx())
             mTextShow = getBoolean(R.styleable.Chart_chart_textShow, true)
 
             mBarGrad = getBoolean(R.styleable.Chart_bar_gradientShow, false)
@@ -227,13 +225,15 @@ class Chart(
     }
 
     private fun dpToPx(dp: Float): Float {
-        return dp * resources.displayMetrics.density
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.displayMetrics)
+    }
+
+    private fun spToPx(): Float {
+        val sp = TEXT_SIZE
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, resources.displayMetrics)
     }
 
     private fun initPaint() {
-        mPaintFrame.color = mFrameColor
-        mPaintFrame.style = Paint.Style.STROKE
-        mPaintFrame.strokeWidth = 4f
 
         mPaintMark.color = mMarkColor
         mPaintMark.style = Paint.Style.STROKE
@@ -335,8 +335,6 @@ class Chart(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        // Рамка
-//        drawFrame(canvas)
 
         if (mArrayDataString == null) return
 
@@ -373,15 +371,6 @@ class Chart(
 
         if (mMarkShow)
             drawMarkZero(canvas)
-    }
-
-    // Рамка
-    private fun drawFrame(canvas: Canvas) {
-        val x1 = mOffsetStart
-        val y1 = mFailedTop
-        val x2 = x1 + mChartWidth
-        val y2 = y1 + mChartHeight
-        canvas.drawRect(x1, y1, x2, y2, mPaintFrame)
     }
 
     // Заливка

@@ -35,10 +35,8 @@
         app:cardElevation="2dp"
         app:layout_constraintBottom_toTopOf="@+id/scrollVert"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCity">
-<!--        android:backgroundTint="@color/frame"-->
 
         <HorizontalScrollView
             android:id="@+id/scrollLine"
@@ -71,7 +69,6 @@
                     app:chart_textAxisShow="false"
                     app:chart_textColor="@color/white"
                     app:chart_textOnLine="true"
-                    app:chart_textSize="@dimen/text_size"
                     app:line_fillShow="true"
                     app:line_fillStyle="gradient"
                     app:line_pointColor="#D9D446" />
@@ -94,7 +91,6 @@
                     app:chart_minHeight="@dimen/min_height"
                     app:chart_textAxisShow="false"
                     app:chart_textColor="@color/white"
-                    app:chart_textSize="@dimen/text_size"
                     app:chart_textFormat="integer" />
 
                 <com.tera.custom_chart.Chart
@@ -112,7 +108,6 @@
                     app:chart_textAxisShow="true"
                     app:chart_textAxisSize="11sp"
                     app:chart_textColor="@color/white"
-                    app:chart_textSize="@dimen/text_size"
                     app:chart_textFormat="integer" />
 
             </LinearLayout>
