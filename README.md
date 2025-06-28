@@ -60,7 +60,7 @@ chart_textAxisSize	|Axis text size	|12sp
 chart_textAxisTop	|Axis text top	|false
 chart_textColor	|Value text color	|black
 chart_textFormat	|Text format (string, integer)	|string
-chart_textOnLine	|Value text on straight line	   |true
+chart_textOnLine	|Value text on straight line	   |false
 chart_textSize	|Value text size	|12sp
 chart_textShow	|Show value text	|true 
 
