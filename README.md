@@ -14,7 +14,7 @@ To use the ready-made library, add the dependency:
 ```
 dependencies {
 
-    implementation("io.github.uratera:chart:1.0.2")
+    implementation("io.github.uratera:chart:1.0.3")
 }
 ```
 For horizontal scrolling, use HorizontalScrollView.
@@ -24,8 +24,8 @@ For horizontal scrolling, use HorizontalScrollView.
     android:layout_height="wrap_content"
     android:scrollbars="none">
 
-    <com.tera.linechart.LineChart
-        android:id="@+id/lineChart"
+    <com.tera.chart.Chart
+        android:id="@+id/chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -60,7 +60,7 @@ chart_textAxisSize	|Axis text size	|12sp
 chart_textAxisTop	|Axis text top	|false
 chart_textColor	|Value text color	|black
 chart_textFormat	|Text format (string, integer)	|string
-chart_textOnLine	|Value text on straight line	   |true
+chart_textOnLine	|Value text on straight line	   |false
 chart_textSize	|Value text size	|12sp
 chart_textShow	|Show value text	|true 
 
