@@ -489,7 +489,7 @@ class Chart(
     private fun drawAxisX(canvas: Canvas) {
         val size = mArrayValuePos.size
         var x1 = mArrayValuePos[0].x
-        var x2= mArrayValuePos[size - 1].x
+        var x2 = mArrayValuePos[size - 1].x
 
         if (mChartStyle == 1) {
             val w2 = mBarWidth / 2
@@ -691,12 +691,19 @@ class Chart(
 
         // Максимальное значние
         var maxValue = arrayNew.maxOrNull()
-        // Коэффциент по Y
-        val k = h / maxValue!!
+
+        // Коэффициент по Y
+        var k = 1f
+
+        if (maxValue?.toInt() != 0)
+            k = h / maxValue!!
 
         // Пересчитать Y
         for (i in arrayNew.indices) {
-            val y = arrayNew[i] * k + offsetBottom
+            val y = if ((maxValue.toInt() != 0))
+                arrayNew[i] * k + offsetBottom
+            else
+                arrayNew[i] + offsetBottom
             arrayNew[i] = y
         }
 
@@ -820,8 +827,6 @@ class Chart(
 
     val chartHeight: Float
         get() = mChartHeight
-
-
 
 
 }

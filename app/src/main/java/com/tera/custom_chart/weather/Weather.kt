@@ -9,7 +9,7 @@ import com.tera.custom_chart.MainActivity
 import com.tera.custom_chart.utils.MyConst
 import org.json.JSONObject
 
-class Weather(val context: Context) {
+class Weather(private val context: Context) {
 
     companion object {
         const val FORMAT_DATE = "yyyy-MM-dd HH:mm"
@@ -45,6 +45,7 @@ class Weather(val context: Context) {
         val request = StringRequest(
             Request.Method.GET, url,
             { response ->
+                Log.d("myLogs", "response: $response")
                 val obj = JSONObject(response)
                 hoursWeather(obj)
 
@@ -58,11 +59,11 @@ class Weather(val context: Context) {
 
     private fun hoursWeather(obj: JSONObject) {
 
-        val listTemp = ArrayList<String>()
-        val listTime = ArrayList<String>()
-        val listPress = ArrayList<String>()
-        val listWind = ArrayList<String>()
-        val listIcon = ArrayList<Int>()
+        val arrayTemp = ArrayList<String>()
+        val arrayTime = ArrayList<String>()
+        val arrayPress = ArrayList<String>()
+        val arrayWind = ArrayList<String>()
+        val arrayIcon = ArrayList<Int>()
         var indexZero = 0
         var dayWeek = ""
 
@@ -100,17 +101,17 @@ class Weather(val context: Context) {
                 dayWeek = dayWeek.replaceFirstChar { it.uppercase() }
             }
 
-            listTime.add(time)
-            listTemp.add(temp)
-            listPress.add(press)
-            listWind.add(wind)
-            listIcon.add(icon)
+            arrayTime.add(time)
+            arrayTemp.add(temp)
+            arrayPress.add(press)
+            arrayWind.add(wind)
+            arrayIcon.add(icon)
         }
 
-        val time = listTime[indexZero]
-        listTime[indexZero] = "$dayWeek $time"
+        val time = arrayTime[indexZero]
+        arrayTime[indexZero] = "$dayWeek $time"
 
-        activity.setChart(context, listTime, listTemp, listPress, listWind, listIcon, false)
+        activity.setChart(context, arrayTime, arrayTemp, arrayPress, arrayWind, arrayIcon, false)
 
     }
 

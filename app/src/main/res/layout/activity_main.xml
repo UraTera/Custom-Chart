@@ -55,7 +55,7 @@
                 android:orientation="vertical">
 
                 <com.tera.custom_chart.Chart
-                    android:id="@+id/lineChart"
+                    android:id="@+id/tempChart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chart_axisColor="#BADC7603"
@@ -74,7 +74,7 @@
                     app:line_pointColor="#D9D446" />
 
                 <com.tera.custom_chart.Chart
-                    android:id="@+id/barChart"
+                    android:id="@+id/pressChart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:bar_gradientShow="true"
@@ -94,7 +94,7 @@
                     app:chart_textFormat="integer" />
 
                 <com.tera.custom_chart.Chart
-                    android:id="@+id/lineChart2"
+                    android:id="@+id/windChart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chart_iconShow="false"

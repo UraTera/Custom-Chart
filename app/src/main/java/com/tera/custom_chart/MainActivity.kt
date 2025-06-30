@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setPosText() = with(binding) {
         val marginTop = resources.getDimension(R.dimen.margin_top)
-        val chartHeight = lineChart.chartHeight
+        val chartHeight = tempChart.chartHeight
         var margin = (marginTop + chartHeight).toInt()
 
         var param = tvPress.layoutParams as ViewGroup.MarginLayoutParams
@@ -72,37 +72,37 @@ class MainActivity : AppCompatActivity() {
 
     // Загрузка диаграммы
     fun setChart(
-        context: Context, listTime: ArrayList<String>, listTemp: ArrayList<String>,
-        listPress: ArrayList<String>, listWind: ArrayList<String>, listIcon: ArrayList<Int>,
+        context: Context, arrayTime: ArrayList<String>, arrayTemp: ArrayList<String>,
+        arrayPress: ArrayList<String>, arrayWind: ArrayList<String>, arrayIcon: ArrayList<Int>,
         keyRestore: Boolean
     ) {
         val view = context as Activity
-        val chartTemp = view.findViewById<Chart>(R.id.lineChart)
-        val chartPress = view.findViewById<Chart>(R.id.barChart)
-        val chartWind = view.findViewById<Chart>(R.id.lineChart2)
+        val tempChart = view.findViewById<Chart>(R.id.tempChart)
+        val pressChart = view.findViewById<Chart>(R.id.pressChart)
+        val windChart = view.findViewById<Chart>(R.id.windChart)
         val tvTest = view.findViewById<TextView>(R.id.tvTest)
 
-        val temp = listTemp[0]
+        val temp = arrayTemp[0]
         tvTest.text = temp
 
         setText(context)
-        chartTemp.dataValueString = listTemp
-        chartTemp.dataAxisString = listTime
-        chartTemp.icons = listIcon
+        tempChart.dataValueString = arrayTemp
+        tempChart.dataAxisString = arrayTime
+        tempChart.icons = arrayIcon
 
-        chartPress.dataAxisString = listTime
-        chartPress.dataValueString = listPress
+        pressChart.dataAxisString = arrayTime
+        pressChart.dataValueString = arrayPress
 
-        chartWind.dataAxisString = listTime
-        chartWind.dataValueString = listWind
+        windChart.dataAxisString = arrayTime
+        windChart.dataValueString = arrayWind
 
         if (keyRestore) return
 
-        val timeStr = gson.toJson(listTime)
-        val tempStr = gson.toJson(listTemp)
-        val pressStr = gson.toJson(listPress)
-        val windStr = gson.toJson(listWind)
-        val iconStr = gson.toJson(listIcon)
+        val timeStr = gson.toJson(arrayTime)
+        val tempStr = gson.toJson(arrayTemp)
+        val pressStr = gson.toJson(arrayPress)
+        val windStr = gson.toJson(arrayWind)
+        val iconStr = gson.toJson(arrayIcon)
 
         val sp = context.getSharedPreferences(MyConst.SETTING, Context.MODE_PRIVATE)
         sp.edit {
@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveParams() {
         val sp = getSharedPreferences(MyConst.SETTING, Context.MODE_PRIVATE)
-        sp.edit() {
+        sp.edit {
             putInt(MyConst.NUM_TEMP, numTemp)
             putInt(MyConst.NUM_PRESS, numPress)
             putInt(MyConst.NUM_WIND, numWind)
