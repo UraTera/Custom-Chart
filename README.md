@@ -24,8 +24,8 @@ For horizontal scrolling, use HorizontalScrollView.
     android:layout_height="wrap_content"
     android:scrollbars="none">
 
-    <com.tera.linechart.LineChart
-        android:id="@+id/lineChart"
+    <com.tera.chart.Chart
+        android:id="@+id/chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
