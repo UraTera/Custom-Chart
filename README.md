@@ -6,7 +6,7 @@ The chart is configured visually during layout.
 
 The weather is determined by the specified coordinates; no location determination is required.
 
-Project created in Android Studio Meerkat | 2024.3.1 Patch 2.
+Project created in Android Studio Otter 2 Feature Drop | 2025.2.2 Patch 1
 
 ![Custom_Chart](https://github.com/user-attachments/assets/743f7b5a-e1d3-45e9-97d4-27f2e7ca1561)
 
