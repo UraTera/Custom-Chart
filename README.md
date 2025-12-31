@@ -14,7 +14,7 @@ To use the ready-made library, add the dependency:
 ```
 dependencies {
 
-    implementation("io.github.uratera:chart:1.0.4")
+    implementation(files("libs/Chart106.aar"))
 }
 ```
 For horizontal scrolling, use HorizontalScrollView.
