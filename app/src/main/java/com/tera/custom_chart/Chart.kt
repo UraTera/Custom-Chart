@@ -286,7 +286,8 @@ class Chart(
 
     // Режим отладки
     private fun setEditMode() {
-        mArrayDataString = arrayListOf("23°C", "21°C", "22°C", "20°C", "21°C", "19°C")
+//        mArrayDataString = arrayListOf("23°C", "21°C", "22°C", "20°C", "21°C", "19°C")
+        mArrayDataString = arrayListOf("3°C", "2°C", "1°C", "0°C", "-2°C", "-1°C")
         mArrayDataFloat = stringToFloat(mArrayDataString!!)
 
         mArrayTextAxis = arrayListOf("22:00", "23:00", "0:00", "1:00", "2:00", "3:00")
@@ -317,7 +318,10 @@ class Chart(
         val array = ArrayList<Float>()
         for (i in arrayStr.indices) {
             val str = arrayStr[i]
-            val digit = str.filter { it.isDigit() }.toFloat()
+            var digit = str.filter { it.isDigit() }.toFloat()
+            val s1 = str[0]
+            if (s1.equals('-'))
+                digit = -digit
             array.add(digit)
         }
         return array
@@ -327,7 +331,10 @@ class Chart(
         val array = ArrayList<Int>()
         for (i in arrayStr.indices) {
             val str = arrayStr[i]
-            val digit = str.filter { it.isDigit() }.toInt()
+            var digit = str.filter { it.isDigit() }.toInt()
+            val s1 = str[0]
+            if (s1.equals('-'))
+                digit = -digit
             array.add(digit)
         }
         return array

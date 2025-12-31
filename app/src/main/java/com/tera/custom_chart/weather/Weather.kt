@@ -18,9 +18,15 @@ class Weather(private val context: Context) {
 
     private val sp = context.getSharedPreferences(MyConst.SETTING, Context.MODE_PRIVATE)
     private var activity = MainActivity()
-    private var latitude = 25.7616798
-    private var longitude = -80.1917902
-    private var timeZone = "America/New_York"
+//    private var latitude = 25.7616798
+//    private var longitude = -80.1917902
+//    private var timeZone = "America/New_York"
+
+    // Belgrade
+    private var latitude = 44.8125449
+    private var longitude = 20.46123
+    private var timeZone = "Europe/Belgrade"
+
     private var numTemp = 0
     private var numPress = 0
     private var numWind = 0
